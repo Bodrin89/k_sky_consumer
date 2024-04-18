@@ -38,7 +38,7 @@ services:
     volumes:
       - ./:/code
       - ./static:/static
-    command: [python, manage.py, runserver, 0.0.0.0:8002]
+#    command: [python, manage.py, runserver, 0.0.0.0:8002]
     entrypoint: [bash, entrypoint.sh]
     networks:
       some_network:
