@@ -1,6 +1,6 @@
 from django.db.models import Sum
 
-from apps.analytic.models import PlaceAnalyticModel, CategoryAnalyticModel
+from apps.analytic.models import CategoryAnalyticModel, PlaceAnalyticModel
 from apps.check.models import CheckModel
 
 

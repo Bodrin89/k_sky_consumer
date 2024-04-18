@@ -18,7 +18,6 @@ def kafka_consumer():
     bootstrap_servers = os.getenv('KAFKA_BOOTSTRAP_SERVERS')
     consumer = KafkaConsumer('send_checks', bootstrap_servers=bootstrap_servers)
     consumer.subscribe(topics=['send_checks'])
-    print('Listening for messages...')
     for message in consumer:
         check_schema = CheckSchema.parse_raw(message.value.decode('utf-8'))
 
