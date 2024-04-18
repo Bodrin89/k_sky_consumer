@@ -1,0 +1,12 @@
+
+**
+!apps
+!config
+!pyproject.toml
+!poetry.lock
+!manage.py
+!entrypoint.sh
+!utils
+!validators
+!uszips.csv
+!schemas
