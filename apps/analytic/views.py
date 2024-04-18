@@ -12,12 +12,14 @@ from apps.analytic.serializers import (
     GetAnalyticDeltaTimeSerializer,
     GetAnalyticPlacesSerializer,
 )
+from apps.analytic.tasks import analytic_calculate
 
 
 class GetGeneralAnalyticView(APIView):
     """View для получения общей аналитики"""
 
     def get(self, request):
+        analytic_calculate()
         analytic_places = AnalyticDAO.get_analytic_places()
         analytic_categories = AnalyticDAO.get_analytic_categories()
 
