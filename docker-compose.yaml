@@ -27,17 +27,18 @@ services:
   api_consumer:
     container_name: ru_you_api
     build: .
+    restart: always
     depends_on:
       db_consumer:
         condition: service_healthy
     env_file:
       - .env
     ports:
-      - 8089:8089
+      - 8002:8002
     volumes:
       - ./:/code
       - ./static:/static
-    command: [python, manage.py, runserver, 0.0.0.0:8089]
+    command: [python, manage.py, runserver, 0.0.0.0:8002]
     entrypoint: [bash, entrypoint.sh]
     networks:
       some_network:
@@ -47,18 +48,18 @@ services:
   kafka_consumer:
     container_name: ru_you_kafka_consumer
     build: .
+    restart: always
     depends_on:
       db_consumer:
         condition: service_healthy
     env_file:
       - .env
     ports:
-      - 8080:8080
+      - 8082:8082
     volumes:
       - ./:/code
       - ./static:/static
     command: [python, manage.py, start_kafka_consumer]
-#    entrypoint: [ bash, entrypoint.sh ]
     networks:
       some_network:
         aliases:
